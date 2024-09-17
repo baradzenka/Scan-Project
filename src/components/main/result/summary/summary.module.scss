@@ -1,0 +1,351 @@
+
+.summary {
+	margin-bottom: 107px;
+
+	font-family: var(--font-2);
+	color: var(--color-main-2);
+
+	.title,
+	.foundCases {
+		padding: 0 4.2vw;
+	}
+
+	.title {
+		text-transform: uppercase;
+		font-family: var(--font-1);
+		font-size: 30px;
+	}
+
+	.foundCases {
+		margin-top: 15px;
+		font-size: 18px;
+		color: #949494;
+	}
+
+	--arrow-width: 22px;
+
+	--carousel-arrow-gap: 12px;
+	--carousel-board-width: 131px;
+	--carousel-padding-left: 7px;
+	--carousel-padding-right: 11px;
+
+	--slide-width: 136px;
+	--slide-height: 154px;
+	--slide-gap: 3px;	
+
+	.carouselCtrl {
+		padding: 27px 60px 0;
+		margin: 0 auto;
+		width: min-content;
+
+		display: flex;
+
+		.leftArrow,
+		.rightArrow {
+			width: var(--arrow-width);
+			height: auto;
+			margin: 2px 0;
+
+			background-color: transparent;
+			background-position: center;
+			background-repeat: no-repeat;
+			z-index: 1;
+
+			&:disabled {
+				opacity: 0.5;
+			}
+
+			&:hover {
+				filter: drop-shadow(0 0 #000);
+			}
+		}
+		.leftArrow {
+			margin-right: var(--carousel-arrow-gap);
+			background-image: url("../../../../images/left_arrow.svg");
+		}
+		.rightArrow {
+			margin-left: var(--carousel-arrow-gap);
+			background-image: url("../../../../images/right_arrow.svg");
+		}
+
+		.wrap {
+			display: flex;
+
+			.board {
+				padding: 17px 0 20px 28px;
+
+				width: var(--carousel-board-width);
+				height: calc(var(--slide-height) + 4px);
+
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				font-size: 20px;
+				color: var(--color-main-3);
+
+				background-color: var(--color-main-1);
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
+
+				.total {
+					padding-top: 3px;
+				}
+			}
+
+			.carousel {
+				padding-left: var(--carousel-padding-left);
+				padding-right: var(--carousel-padding-right);
+
+				width: calc(var(--slide-number,0) * (var(--slide-width) + var(--slide-gap)) - var(--slide-gap) +
+					var(--carousel-padding-left) + var(--carousel-padding-right));
+
+				overflow: hidden;
+				position: relative;
+
+				border-top-right-radius: 10px;
+				border-bottom-right-radius: 10px;
+				border: 2px solid var(--color-main-1);
+
+				&[aria-disabled="true"] {
+					pointer-events: none;
+				}			
+				&[aria-disabled="false"] {
+					cursor: grab;
+				}
+
+				.container {
+					margin-left: calc(-1 * var(--slide-gap));
+					height: 100%;
+					display: flex;
+
+					touch-action: pan-y pinch-zoom;
+
+					.slideBase {
+						flex-shrink: 0;
+						flex-basis: auto;
+
+						padding-left: var(--slide-gap);
+
+						.slide {
+							padding: 15px 10px;
+
+							width: var(--slide-width);
+							height: var(--slide-height);
+
+							user-select: none;
+
+							display: flex;
+
+							.data {
+								padding: 2px 0 5px;
+								height: 100%;
+
+								display: flex;
+								flex-direction: column;
+								justify-content: space-between;
+								align-items: center;
+
+								font-size: 18px;
+
+								.total {
+									padding-top: 5px;
+								}
+							}
+							.border {
+								height: 100%;
+								width: 100%;
+								border-right: 2px solid #d4d4d4;
+							}
+						}
+					}
+
+					.loading {
+						width: 100%;
+						font-size: 18px;
+
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						row-gap: 10px;
+
+						.progress {
+							width: 50px;
+							height: 50px;
+			
+							background-image: url("images/progressBig.png");
+							background-repeat: no-repeat;
+							animation: progress 1.2s infinite linear;
+			
+							@keyframes progress {
+								0% {
+									transform: rotate(0deg);
+								}
+								100% {
+									transform: rotate(360deg);
+								}
+							}
+						}
+					}
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					z-index: 1;
+					background-color: var(--color-main-3);
+
+					display: none;
+				}
+			}
+		}
+	}
+
+
+/* <=1440 */
+@media (max-width: 1440px) {
+	margin-top: calc(-6.25vw + 90px);
+	.title,
+	.foundCases {
+		padding: 0 60px;
+	}
+}
+
+
+/* <=910 */
+@media (max-width: 910px) {
+	.title,
+	.foundCases {
+		padding: 0 20px;
+	}	
+	.carouselCtrl {
+		padding: 27px calc(2.8vw - 5.5px) 0;
+	}
+}
+
+
+/* <=640 */
+@media (max-width: 640px) {
+	margin-top: 61px;
+	margin-bottom: 57px;
+
+	.title,
+	.foundCases {
+		width: 375px;
+		margin: 0 auto;
+		padding-left: 14px;
+	}
+	.foundCases {
+		margin-top: 7px;
+	}
+
+	.carouselCtrl {
+		padding-top: 34px;
+	}
+}
+
+
+/* <=430 */
+@media (max-width: 430px) {
+	--carousel-arrow-gap: 8px;
+	--carousel-board-width: 298px;
+	--carousel-padding-left: 0px;
+	--carousel-padding-right: 0px;
+
+	--slide-width: 298px;
+	--slide-height: 71px;
+	--slide-gap: 0px;
+
+	.carouselCtrl {
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto auto;
+		grid-template-areas:
+			"leftArrow board rightArrow"
+			"leftArrow carousel rightArrow";
+
+		.leftArrow,
+		.rightArrow {
+			height: 68px;
+			align-self: end;
+			background-position: bottom 15px center;
+		}
+
+		.wrap {
+			flex-direction: column;
+
+			border-radius: 10px;
+			box-shadow: 0px 0px 12px 0px #0004;
+
+			.board {
+				padding: 0 26px 3px 15px;
+
+				flex-direction: row;
+				align-items: center;
+
+				font-size: 18px;
+
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				border-bottom-left-radius: 0;
+
+				.total {
+					padding-top: 0;
+					padding-left: 31px;
+				}
+			}
+
+			.carousel {
+				width: 298px;
+				height: 65px;
+
+				border-top-right-radius: 0;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+				border: none;
+
+				.container {
+					.slideBase {
+						.slide {
+							padding: 0 44px 10px 10px;
+
+							.data {
+								width: 100%;
+								flex-direction: row;
+
+								font-size: 16px;
+
+								.total {
+									padding-top: 0;
+								}
+							}
+							.border {
+								width: 0;
+								border: none;
+							}
+						}
+					}
+
+					.loading {
+						.progress {
+							width: 36px;
+							height: 36px;
+							background-image: url("images/progressSmall.png");
+						}
+						.message {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+}
+

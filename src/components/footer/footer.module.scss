@@ -1,0 +1,43 @@
+
+.footer {
+	min-height: 137px;
+	padding: 0 45px 0 56px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: var(--color-main-1);
+
+	.logo {
+		width: 141px;
+		height: 93px;
+		background-image: url("../../images/logo_white.svg");
+		background-size: cover;
+		background-position-y: center;
+	}
+
+	.contacts {
+		text-align: right;
+
+		color: var(--color-main-3);
+		font: 14px var(--font-2);
+
+		.copyright {
+			margin-top: 21px;
+			font-size: 12px;
+		}
+	}
+
+
+/* <=910 */
+@media (max-width: 910px) {
+	padding: 0 26px 0 14px;
+
+	.logo {
+		align-self: self-start;
+		width: 121px;
+	}
+}
+
+}

@@ -1,0 +1,15 @@
+
+.main {
+
+	h1 {
+		margin: 10vh auto 0;
+		width: fit-content;
+		font: 28px var(--font-1);
+	}
+
+	h1 + p {
+		margin: 16px auto 0;
+		width: fit-content;
+		font: 16px var(--font-2);
+	}
+}

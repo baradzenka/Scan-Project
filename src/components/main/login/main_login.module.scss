@@ -1,0 +1,250 @@
+
+.main {
+	padding: 71px 9.7vw 80px 60px;
+
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+		"title form"
+		"image form";
+	justify-items: center;
+	align-items: center;
+	column-gap: 55px;
+	row-gap: 10px;
+
+	font-family: var(--font-2);
+
+	.title {
+		grid-area: title;
+
+		text-transform: uppercase;
+		font-family: var(--font-1);
+		font-size: clamp(22px, 2.8vw, 40px);
+	}
+
+	.image {
+		grid-area: image;
+
+		max-width: 322px;
+		max-height: 342px;
+		width: 100%;
+		height: 100%;
+		background-image: url("./images/main.svg");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.form {
+		grid-area: form;
+		grid-row: span 2;
+
+		padding: 24px 25px;
+		width: 429px;
+		height: 523px;
+
+		font-size: 16px;
+		border-radius: 10px;
+		color: #949494;
+		box-shadow: 0px 0px 14px 0px #0002;
+
+		position: relative;
+
+		&::before {
+			content: "";
+
+			width: 75px;
+			height: 92px;
+
+			position: absolute;
+			left: -50px;
+			top: -55px;
+
+			background-image: url("./images/lock.svg");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.tabs {
+			display: flex;
+			column-gap: 15px;
+
+			text-align: center;
+			cursor: default;
+
+			.tabLogin {
+				padding-bottom: 8px;
+				width: 100%;
+				flex-shrink: 1.37;
+
+				color: var(--color-main-1);
+				border-bottom: 2px solid var(--color-main-1);
+			}
+			.tabRegister {
+				width: 100%;
+
+				color: #c7c7c7;
+				border-bottom: 2px solid #c7c7c7;
+			}
+		}
+
+		.login .loginTitle {
+			margin-top: 39px;
+		}
+		.pass .passTitle {
+			margin-top: -4px;
+		}
+		.login .loginInput,
+		.pass .passInput {
+			margin-top: 15px;
+			padding: 0 14px;
+			width: 100%;
+			font-size: 16px;
+		}
+		.login .loginError,
+		.pass .passwordError {
+			visibility: hidden;
+			margin-top: 6px;
+			text-align: center;
+			font-size: 14px;
+			color: var(--color-extra-6);
+
+			&[aria-hidden="false"] {
+				visibility: visible;
+			}
+		}
+
+		.loginBtn {
+			margin-top: 7px;
+			width: 100%;
+		}
+
+		.passRestore {
+			margin: 15px auto 0;
+			width: fit-content;
+			display: block;
+
+			font-size: 14px;
+			border-bottom: 1px solid var(--color-extra-3);
+			color: var(--color-extra-3);
+		}
+
+		.loginVia {
+			margin-top: 28px;
+		}
+		.loginMeanses {
+			margin-top: 15px;
+
+			display: flex;
+			column-gap: 10px;
+
+			.loginViaGoogle,
+			.loginViaFacebook,
+			.loginViaYandex {
+				width: 96px;
+				height: 31px;
+
+				border-radius: 3px;
+				border: 1px solid #acb7ff;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			.loginViaGoogle {
+				background-image: url("./images/google.svg");
+			}
+			.loginViaFacebook {
+				background-image: url("./images/facebook.svg");
+			}
+			.loginViaYandex {
+				background-image: url("./images/yandex.svg");
+			}
+		}
+	}
+
+
+/* <=1170 */
+@media (max-width: 1170px) {
+	.form {
+		padding: 25px 15px;
+		width: 335px;
+		height: 504px;
+
+		column-gap: 26px;
+		font-size: 14px;
+
+		&::before {
+			width: 60px;
+			height: 74px;
+
+			left: 96px;
+		}	
+
+		.tabs {
+			column-gap: 20px;
+
+			.tabLogin {
+				padding-bottom: 10px;
+				flex-shrink: 1.64;
+			}
+		}
+
+		.login .loginTitle {
+			margin-top: 40px;
+		}
+		.pass .passTitle {
+			margin-top: 0px;
+		}
+		.login .loginError,
+		.pass .passwordError {
+			margin-top: 5px;
+			font-size: 12px;
+		}		
+
+		.loginBtn {
+			margin-top: 14px;
+		}
+
+		.loginVia {
+			font-size: 16px;
+		}
+	}
+}
+
+
+/* <=780 */
+@media (max-width: 780px) {
+	padding: 33px calc(33.33% - 110px) 80px;
+
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto;
+	grid-template-areas:
+		"title"
+		"form"
+		"image";
+
+	.image {
+		margin-top: 38px;
+
+		min-width: 335px;
+		min-height: 356px;
+	}
+
+	.form {
+		margin-top: 113px;
+
+		grid-row: span 1;
+
+		&::before {
+			width: 75px;
+			height: 92px;
+
+			left: 81px;
+			top: -80px;
+		}
+	}
+}
+
+
+}
+

@@ -1,0 +1,353 @@
+
+.header {
+	min-height: 93px;
+	padding: 0 60px 0 56px;
+
+	position: relative;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 36px;
+
+	font: 14px var(--font-2);
+	color: var(--color-main-2);
+
+	.logo {
+		width: 141px;
+		height: 93px;
+		background-image: url("images/logo.svg");
+		background-size: cover;
+		background-position-y: center;
+	}
+
+	.menu {
+		justify-self: center;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 49px;
+
+		.option {
+			color: var(--color-main-2);
+		}
+	}
+
+	.rightBlockUnAuth {
+		justify-self: right;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 20px;
+
+		.signin {
+			color: var(--color-extra-4);
+			cursor: default;
+		}
+		.separator {
+			width: 2px;
+			height: 26px;
+			background-color: var(--color-main-1);
+		}
+		.login {
+			height: 26px;
+			padding: 4px 11px 5px 12px;
+
+			color: var(--color-main-2);
+			background-color: var(--color-extra-2);
+			font-weight: 500;
+			font-size: 14px;
+		}
+	}
+
+	.rightBlockAuth {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 25px;
+
+		.statistics,
+		.statisticsLoading {
+			border-radius: 5px;
+			background-color: #f4f4f4;			
+		}
+		.statistics {
+			width: min-content;
+			padding: 12px 10px 15px 9px;
+
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			row-gap: 2px;
+			align-items: center;
+
+			.companiesUsedTitle,
+			.companiesLimitTitle {
+				margin-right: 9px;
+				white-space: nowrap;
+				text-align: right;
+				font-size: 10px;
+				color: var(--color-extra-4);
+			}
+			.companiesUsedNumber,
+			.companiesLimitNumber {
+				font-size: 14px;
+				font-weight: bold;
+			}
+			.companiesLimitNumber {
+				color: var(--color-extra-5);
+			}			
+		}
+
+		.statisticsLoading {
+			min-width: 159px;
+			min-height: 63px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&::after {
+				content: "";
+
+				display: block;
+				width: 24px;
+				height: 24px;
+
+				background-image: url("images/progress.png");
+				animation: progress 1.2s infinite linear;
+
+				@keyframes progress {
+					0% {
+						transform: rotate(0deg);
+					}
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+			}
+		}
+
+		.user {
+			display: flex;
+			text-align: right;
+
+			cursor: default;
+
+			.name,
+			.logout {
+				margin-right: 5px;
+				white-space: nowrap;
+			}
+			.logout {
+				font-size: 10px;
+				color: var(--color-extra-4);
+
+				&:hover {
+					color: var(--color-main-1);
+				}
+			}
+			.avatar {
+				width: 32px;
+				height: 32px;
+
+				border-radius: 50%;
+				background-image: url("images/avatar.png");
+			}
+		}
+	}
+
+	.burgerBtn {
+		width: 30px;
+		height: 25px;
+		padding: 0;
+
+		display: none;
+		flex-direction: column;
+		row-gap: 5px;
+
+		border: none;
+		border-radius: 0;
+		background-color: transparent;
+
+		div {
+			width: 100%;
+			height: 5px;
+			background-color: var(--color-main-1);
+		}
+	}
+
+	.dropDownMenu {
+		display: none;
+	}
+
+
+/* <=910 */
+@media (max-width: 910px) {
+	padding: 0 26px 0 14px;
+
+	.logo {
+		width: 121px;
+	}
+
+	.menu {
+		justify-self: auto;
+		justify-content: space-around;
+		column-gap: 16px;
+	}
+
+	.rightBlockAuth {
+		.statistics {
+			padding: 5px 26px 5px 10px;
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			row-gap: 2px;
+
+			.companiesUsedTitle,
+			.companiesLimitTitle {
+				margin-right: 0;
+				font-size: 8px;
+			}
+			.companiesLimitTitle {
+				margin-top: 5px;
+			}
+		}
+
+		.statisticsLoading {
+			min-width: 132px;
+			min-height: 75px;
+		}
+	}
+}
+
+/* <=700 */
+@media (max-width: 700px) {
+	grid-template-columns: 1fr 1fr;
+	column-gap: 10px;
+
+	.rightBlockAuth {
+		column-gap: 31px;
+	}
+
+	.menu,
+	.rightBlockUnAuth .signin,
+	.rightBlockUnAuth .separator,
+	.rightBlockUnAuth .login,
+	.rightBlockAuth .user {
+		display: none;
+	}
+
+	.rightBlockAuth {
+		justify-content: flex-end;
+	}
+
+	.burgerBtn {
+		display: flex;
+	}
+
+
+	.dropDownMenu {
+		padding: 0 29px 77px 14px;
+		z-index: 1;
+
+		position: absolute;
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		background-color: var(--color-main-1);
+
+		.dropDownMenuHeader {
+			width: 100%;
+			min-height: 93px;
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.dropDownMenuLogo {
+				width: 121px;
+				height: 93px;
+
+				background-color: var(--color-main-3);
+				mask-image: url("../../images/logo_white.svg");
+				mask-size: cover;
+				mask-position: center;
+			}
+			.dropDownMenuCloseBtn {
+				min-width: 25px;
+				height: 25px;
+
+				border: none;
+				border-radius: 0;
+				background-color: transparent;
+
+				&:before,
+				&:after {
+					content: "";
+					position: absolute;
+					margin-left: -15px;
+					margin-top: -3px;
+					width: 30px;
+					height: 5px;
+
+					background: #fff;
+				}
+				&:before {
+					transform: rotate(45deg);
+				}
+				&:after {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
+		.dropDownMenuOptions {
+			margin-top: 44px;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 25px;
+
+			.dropDownMenuOption {
+				font-weight: 400;
+				font-size: 16px;
+				color: var(--color-main-3);
+			}
+		}
+
+		.dropDownMenuSignin,
+		.dropDownMenuLogout {
+			margin-top: 74px;
+
+			font-size: 16px;
+			color: var(--color-extra-2);
+			cursor: default;
+		}
+
+		.dropDownMenuLogin {
+			margin-top: 20px;
+			padding: 16px 117px 12px;
+
+			background-color: var(--color-extra-2);
+			font-weight: 700;
+			font-size: 20px;
+		}
+
+		.dropDownMenuLogout {
+			&:hover {
+				filter: brightness(1.1);
+			}
+		}
+	}
+}
+
+
+}
+

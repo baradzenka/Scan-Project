@@ -1,0 +1,263 @@
+
+.docs {
+	margin-bottom: 109px;
+
+	padding: 0 4.2vw;
+
+	font-family: var(--font-2);
+	color: var(--color-main-2);
+
+	.title {
+		text-transform: uppercase;
+		font-family: var(--font-1);
+		font-size: 30px;
+	}
+
+	.docList {
+		margin-top: 58px;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: flex-start;
+
+		column-gap: 10px;
+		row-gap: 38px;
+
+		.doc {
+			padding: 19px 30px 35px;
+			max-width: 530px;
+
+			border-radius: 10px;
+			box-shadow: 0px 0px 18px 0px #0003;
+
+			.header {
+				display: flex;
+				column-gap: 15px;
+
+				font-size: 16px;
+
+				.date {
+					color: #949494;
+				}
+				.author {
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+
+					color: #949494;
+				}
+				a.author {
+					text-decoration: underline;
+
+					&:hover {
+						filter: brightness(0.91);
+					}
+				}
+			}
+
+			.title {
+				margin-top: 24px;
+				padding: 0;
+				width: unset;
+
+				font-family: var(--font-2);
+				font-size: 26px;
+				font-weight: 500;
+
+				text-transform: none;
+			}
+
+			.badge {
+				margin-top: 14px;
+				padding: 4px 12px 3px 14px;
+				width: fit-content;
+
+				font-size: 12px;
+				border-radius: 5px;
+
+				background-color: var(--color-extra-1);
+			}
+
+			.content {
+				margin-top: 14px;
+
+				font-size: 16px;
+				max-height: 15em;   // 1.25em * (12 строк) = 15em
+				line-height: 1.25em;
+
+				overflow: hidden;
+
+				color: #0009;
+			}
+
+			.footer {
+				margin-top: 32px;
+
+				display: flex;
+				justify-content: space-between;
+
+				.btnGoToSource {
+					width: 223px;
+					height: 47px;
+
+					font-size: 16px;
+					letter-spacing: 0.3px;
+
+					color: var(--color-main-2);
+					background-color: var(--color-extra-2);
+
+					&:disabled {
+						color: #949494;
+					}					
+				}
+				.wordCount {
+					align-self: flex-end;
+					font-size: 16px;
+					color: #949494;
+				}
+			}
+		}
+	}
+
+	.btnShowMore {
+		display: block;
+		margin: 38px auto 0;
+		width: 305px;
+		letter-spacing: 0.9px;
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+
+/* <=1780 */
+@media (max-width: 1780px) {
+	.docList {
+		column-gap: 30px;
+
+		.doc {
+			max-width: 640px;
+		}
+	}
+}
+
+
+/* <=1430 */
+@media (max-width: 1430px) {
+	padding: 0 60px;
+
+	.docList {
+		column-gap: 10px;
+
+		.doc {
+			max-width: 530px;
+		}
+	}	
+}
+
+
+/* <=1220 */
+@media (max-width: 1220px) {
+	.docList .doc {
+		max-width: 480px;
+	}	
+}
+
+
+/* <=1120 */
+@media (max-width: 1120px) {
+	.docList .doc {
+		max-width: 400px;
+	}	
+}
+
+
+/* <=960 */
+@media (max-width: 960px) {
+	.docList .doc {
+		max-width: 380px;
+	}	
+}
+
+
+/* <=910 */
+@media (max-width: 910px) {
+	margin-bottom: 57px;	
+	padding: 0 20px;
+
+	.btnShowMore {
+		width: 335px;
+		font-size: 20px;
+	}
+}
+
+
+/* <=860 */
+@media (max-width: 860px) {
+	.docList {
+		flex-direction: column;
+
+		.doc {
+			max-width: 100%;
+		}
+	}	
+}
+
+
+/* <=640 */
+@media (max-width: 640px) {
+	padding: 0 26px 0 14px;
+	
+	.title {
+		margin: 0 auto;
+		width: fit-content;
+	}
+
+	.docList {
+		margin-top: 34px;		
+
+		row-gap: 20px;
+
+		.doc {
+			padding: 19px 14px 18px 24px;
+
+			.header {
+				font-size: 14px;
+			}
+
+			.title {
+				margin-top: 20px;				
+				font-size: 19px;
+			}
+
+			.badge {
+				margin-top: 20px;
+			}
+
+			.content {
+				font-size: 12px;
+			}
+			
+			.footer {
+				margin-top: 24px;
+
+				.btnGoToSource {
+					width: 195px;
+					height: 41px;
+
+					font-size: 14px;
+				}
+				.wordCount {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
+
+
+}
+
